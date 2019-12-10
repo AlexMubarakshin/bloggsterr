@@ -1,6 +1,6 @@
-# 👻 Yet another personal site 🤪
+# 👻 Personal blog on Gatsby 🤪
 
-  Personal site on Gatsby
+Personal blog on Gatsby
 
 ## Installation
 
