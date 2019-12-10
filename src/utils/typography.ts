@@ -22,10 +22,12 @@ Theme.overrideThemeStyles = () => ({
   },
   h2: {
     marginTop: '2.65rem'
+  },
+  hr: {
+    background: 'var(--hr)',
   }
 });
 
-// Theme.headerFontFamily.unshift('Inter UI');
 const typography = new Typography(Theme);
 
 // Hot reload typography in development.

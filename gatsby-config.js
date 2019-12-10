@@ -5,6 +5,7 @@ module.exports = {
     title: `Alex Mubarakshin`,
     description: `OMG!? Is this the personal blog by Alex Mubarakshin?!.`,
     author: `Alex Mubarakshin`,
+    social: { instagram: "alex-killpop" },
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -15,22 +16,32 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `markdown-pages`,
+        path: `${__dirname}/content`,
+      },
+    },
+    `gatsby-transformer-remark`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `Alex Mubarakshin blog`,
+        short_name: `AM blog`,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
+        background_color: `#f5f5f5`,
+        theme_color: `#f5f5f5`,
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        icon: `src/images/icon-brand.png`, // This path is relative to the root of the site.
+        crossOrigin: `use-credentials`,
       },
     },
     `gatsby-plugin-typescript`,
     `gatsby-plugin-dark-mode`,
+    `gatsby-plugin-offline`,
     {
       resolve: `gatsby-plugin-typography`,
       options: {
