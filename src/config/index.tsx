@@ -1,3 +1,3 @@
 export const config = {
-  pathPrefix: process.env.PATH_PREFIX || '/',
+  pathPrefix:  process.env.NODE_ENV === 'production' ? '/bloggsterr' : '',
 };

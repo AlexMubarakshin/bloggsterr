@@ -43,7 +43,7 @@
   ],
   "license": "MIT",
   "scripts": {
-    "build": "PATH_PREFIX=\"/bloggsterr\" gatsby build",
+    "build": "gatsby build",
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "start": "yarn run develop",
