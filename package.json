@@ -1,0 +1,52 @@
+{
+  "name": "gatsby-starter-default",
+  "private": true,
+  "description": "OMG!? Is this the personal blog by Alex Mubarakshin?!.",
+  "version": "0.1.0",
+  "author": "Alex Mubarakshin",
+  "dependencies": {
+    "@types/node": "12.12.16",
+    "@types/react": "16.9.16",
+    "@types/react-dom": "16.9.4",
+    "gatsby": "2.18.8",
+    "gatsby-image": "2.2.34",
+    "gatsby-plugin-manifest": "2.2.31",
+    "gatsby-plugin-offline": "3.0.27",
+    "gatsby-plugin-react-helmet": "3.1.16",
+    "gatsby-plugin-sharp": "2.3.5",
+    "gatsby-plugin-typescript": "2.1.20",
+    "gatsby-source-filesystem": "2.1.40",
+    "gatsby-transformer-sharp": "2.3.7",
+    "react": "16.12.0",
+    "react-dom": "16.12.0",
+    "react-helmet": "5.2.1"
+  },
+  "devDependencies": {
+    "@types/react-helmet": "5.0.14",
+    "@typescript-eslint/eslint-plugin": "2.11.0",
+    "@typescript-eslint/parser": "2.11.0",
+    "eslint": "6.7.2",
+    "eslint-plugin-react": "7.17.0",
+    "prettier": "1.19.1",
+    "typescript": "3.7.3"
+  },
+  "keywords": [
+    "gatsby"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
+    "start": "yarn run develop",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean",
+    "lint": "./node_modules/.bin/eslint './src/**/*.{ts,tsx}'",
+    "lint:fix": "./node_modules/.bin/eslint --fix './src/**/*.{ts,tsx}'",
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AlexMubarakshin/yet-another-repo"
+  }
+}
