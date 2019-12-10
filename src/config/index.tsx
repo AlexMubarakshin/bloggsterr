@@ -1,3 +1,3 @@
 export const config = {
-  pathPrefix: process.env['__PATH_PREFIX__'] || '/',
+  pathPrefix: process.env.PATH_PREFIX || '/',
 };

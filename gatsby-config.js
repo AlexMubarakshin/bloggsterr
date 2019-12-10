@@ -1,6 +1,7 @@
 /* eslint-disable */
-
+console.log(process.env.PATH_PREFIX);
 module.exports = {
+  pathPrefix: process.env.PATH_PREFIX || '',
   siteMetadata: {
     title: `Alex Mubarakshin`,
     description: `OMG!? Is this the personal blog by Alex Mubarakshin?!.`,
@@ -49,4 +50,4 @@ module.exports = {
       },
     },
   ],
-}
+};
