@@ -1,8 +1,8 @@
 import React from 'react';
-import { useStaticQuery, graphql } from 'gatsby';
+import { useStaticQuery, graphql, Link } from 'gatsby';
+import ThemeSwitch from './theme-switch';
 
-import Header from './header';
-import './layout.css';
+import { rhythm } from '../utils/typography';
 
 const Layout: React.FC = ({ children }: React.PropsWithChildren<{}>) => {
   const data = useStaticQuery(graphql`
@@ -16,24 +16,46 @@ const Layout: React.FC = ({ children }: React.PropsWithChildren<{}>) => {
   `);
 
   return (
-    <>
-      <Header siteTitle={data.site.siteMetadata.title} />
+    <div
+      style={{
+        backgroundColor: 'var(--bg)',
+        color: 'var(--textNormal)',
+        marginLeft: 'auto',
+        marginRight: 'auto',
+        maxWidth: rhythm(27.5),
+        padding: `${rhythm(1.7)} ${rhythm(0.85)}`,
+        transition: 'color 0.2s ease-out'
+      }}
+    >
       <div
         style={{
-          margin: '0 auto',
-          maxWidth: 960,
-          padding: '0px 1.0875rem 1.45rem',
-          paddingTop: 0,
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          marginBottom: '2.625rem',
         }}
       >
-        <main>{children}</main>
-        <footer>
-          © {new Date().getFullYear()}, Built with
-          {' '}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
-        </footer>
+        <h1 style={{ margin: 0 }}>
+          <Link
+            to="/"
+            style={{
+              color: 'var(--textNormal)',
+              textDecoration: 'none',
+            }}
+          >
+            {data.site.siteMetadata.title}
+          </Link>
+        </h1>
+        <ThemeSwitch />
       </div>
-    </>
+
+      <main>{children}</main>
+      <footer
+        style={{ marginTop: '4.375rem' }}
+      >
+        <a href="https://github.com/AlexMubarakshin" target="_blank" rel="noopener noreferrer">github</a>
+      </footer>
+    </div>
   );
 };
 

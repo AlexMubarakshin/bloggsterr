@@ -30,5 +30,12 @@ module.exports = {
       },
     },
     `gatsby-plugin-typescript`,
+    `gatsby-plugin-dark-mode`,
+    {
+      resolve: `gatsby-plugin-typography`,
+      options: {
+        pathToConfigModule: `src/utils/typography`,
+      },
+    },
   ],
 }
