@@ -16,11 +16,10 @@ type TemplateProps = {
 const Template: React.FC<TemplateProps> = ({
   data,
   location,
-  pageContext
 }: TemplateProps) => {
   const { markdownRemark } = data;
   const { frontmatter, html } = markdownRemark;
-  console.log(pageContext);
+
   return (
     <Layout
       location={location}
@@ -28,6 +27,12 @@ const Template: React.FC<TemplateProps> = ({
       <SEO
         title={frontmatter.title}
         description={frontmatter.description}
+        meta={[
+          {
+            property: 'og:type',
+            content: 'article',
+          },
+        ]}
       />
 
       <article className="blog-post-container">

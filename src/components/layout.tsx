@@ -3,6 +3,7 @@ import React from 'react';
 import { rhythm } from '../utils/typography';
 import Header from './header';
 import { TLocation } from '../types/global';
+import { OutboundLink } from 'gatsby-plugin-google-analytics';
 
 type LayoutProps = {
   location: TLocation;
@@ -25,9 +26,9 @@ const Layout: React.FC<LayoutProps> = ({ children, location }: React.PropsWithCh
     <footer
       style={{ marginTop: '4.375rem' }}
     >
-      <a href="https://github.com/AlexMubarakshin" target="_blank" rel="noopener noreferrer">github</a>
+      <OutboundLink href="https://github.com/AlexMubarakshin" target="_blank" rel="noopener noreferrer">github</OutboundLink>
       {' | '}
-      <a href="https://www.instagram.com/alex_killpop" target="_blank" rel="noopener noreferrer">instagram</a>
+      <OutboundLink href="https://www.instagram.com/alex_killpop" target="_blank" rel="noopener noreferrer">instagram</OutboundLink>
     </footer>
   </div>
 );

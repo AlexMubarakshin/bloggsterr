@@ -1,7 +1,7 @@
 /* eslint-disable */
 console.log(process.env.PATH_PREFIX);
 module.exports = {
-  pathPrefix: process.env.NODE_ENV === 'production' ? '/bloggsterr' : '',
+  pathPrefix: process.env.NODE_ENV === 'production' ? '/bloggsterr' : '/',
   siteMetadata: {
     title: `Alex Mubarakshin`,
     description: `OMG!? Is this the personal blog by Alex Mubarakshin?!.`,
@@ -47,6 +47,19 @@ module.exports = {
       resolve: `gatsby-plugin-typography`,
       options: {
         pathToConfigModule: `src/utils/typography`,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: "UA-154459165-1",
+        head: false,
+        anonymize: true,
+        respectDNT: true,
+        pageTransitionDelay: 0,
+        sampleRate: 5,
+        siteSpeedSampleRate: 10,
+        cookieDomain: "auto",
       },
     },
   ],

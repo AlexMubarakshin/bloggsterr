@@ -1,6 +1,7 @@
 import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import Image from 'gatsby-image';
+import { OutboundLink } from 'gatsby-plugin-google-analytics';
 
 import { rhythm } from '../utils/typography';
 
@@ -48,7 +49,7 @@ const Bio: React.FC = () => {
       <p>
         {author}&apos;s blog.
         <br />
-        Frontend Tech Lead at <a href="https://citronium.com" rel="noopener noreferrer" target="_blank">Citronium LLC</a>.
+        Frontend Tech Lead at <OutboundLink href="https://citronium.com" rel="noopener noreferrer" target="_blank">Citronium LLC</OutboundLink>.
       </p>
     </div>
   );

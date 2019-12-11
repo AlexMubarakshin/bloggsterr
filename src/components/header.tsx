@@ -4,7 +4,6 @@ import { Link, useStaticQuery, graphql } from 'gatsby';
 import ThemeSwitch from './theme-switch';
 
 import { TLocation } from '../types/global';
-import { config } from '../config';
 
 type HeaderProps = {
   location: TLocation;
@@ -13,7 +12,8 @@ type HeaderProps = {
 const Header: React.FC<HeaderProps> = ({ location }: HeaderProps) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
-      site {
+      site(pathPrefix: {}) {
+        pathPrefix
         siteMetadata {
           title
         }
@@ -31,7 +31,7 @@ const Header: React.FC<HeaderProps> = ({ location }: HeaderProps) => {
       }}
     >
       {
-        (location.pathname === config.pathPrefix) ? (
+        (location.pathname === data.site.pathPrefix) ? (
           <h1 style={{ margin: 0 }}>
             <Link
               to="/"
