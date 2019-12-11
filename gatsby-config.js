@@ -1,7 +1,8 @@
 /* eslint-disable */
-console.log(process.env.PATH_PREFIX);
+var START_URL = process.env.NODE_ENV === 'production' ? '/bloggsterr/' : '/';
+
 module.exports = {
-  pathPrefix: process.env.NODE_ENV === 'production' ? '/bloggsterr/' : '/',
+  pathPrefix: START_URL,
   siteMetadata: {
     title: `Alex Mubarakshin`,
     description: `OMG!? Is this the personal blog by Alex Mubarakshin?!.`,
@@ -32,7 +33,7 @@ module.exports = {
       options: {
         name: `Alex Mubarakshin blog`,
         short_name: `AM blog`,
-        start_url: `/`,
+        start_url: START_URL,
         background_color: `#f5f5f5`,
         theme_color: `#f5f5f5`,
         display: `minimal-ui`,
