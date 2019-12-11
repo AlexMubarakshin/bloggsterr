@@ -1,11 +1,32 @@
 import * as React from 'react';
+import { graphql, useStaticQuery } from 'gatsby';
 import { ThemeToggler } from 'gatsby-plugin-dark-mode';
 
-import sun from '../images/icon-sun.png';
-import moon from '../images/icon-moon.png';
+import Image from 'gatsby-image';
 
 
 const ThemeSwitch: React.FC = () => {
+  const data = useStaticQuery(graphql`
+    query {
+      sun: file(relativePath: { eq: "icon-sun.png" }) {
+        childImageSharp {
+          fixed(width: 40, height: 40) {
+            ...GatsbyImageSharpFixed
+          }
+        }
+      }
+      moon: file(relativePath: { eq: "icon-moon.png" }) {
+        childImageSharp {
+          fixed(width: 40, height: 40) {
+            ...GatsbyImageSharpFixed
+          }
+        }
+      }
+    }
+  `);
+
+  const { sun, moon } = data;
+
   return (
     <ThemeToggler>
       {({ theme, toggleTheme }: any): React.ReactElement => {
@@ -13,17 +34,18 @@ const ThemeSwitch: React.FC = () => {
         const onToggleClick = (): void => toggleTheme(isDark ? 'light' : 'dark');
 
         return (
-          <img
-            alt={'theme switch'}
-            onClick={onToggleClick}
-            src={isDark ? sun : moon}
-            style={{
-              cursor: 'pointer',
-              width: '40px',
-              height: '40px',
-              margin: '0',
-            }}
-          />
+          <div onClick={onToggleClick}>
+            <Image
+              fixed={isDark ? sun.childImageSharp.fixed : moon.childImageSharp.fixed}
+              alt={'theme switch'}
+              style={{
+                cursor: 'pointer',
+                width: '40px',
+                height: '40px',
+                margin: '0',
+              }}
+            />
+          </div>
         );
       }}
     </ThemeToggler>

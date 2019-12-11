@@ -7,24 +7,24 @@ import { rhythm } from '../utils/typography';
 
 const Bio: React.FC = () => {
   const data = useStaticQuery(graphql`
-  query BioQuery {
-    avatar: file(relativePath: { eq: "author.jpg" }) {
-      childImageSharp {
-        fixed(width: 100, height: 100) {
-          ...GatsbyImageSharpFixed
+    query BioQuery {
+      avatar: file(relativePath: { eq: "author.jpg" }) {
+        childImageSharp {
+          fixed(width: 100, height: 100) {
+            ...GatsbyImageSharpFixed
+          }
+        }
+      }
+      site {
+        siteMetadata {
+          author
+          social {
+            instagram
+          }
         }
       }
     }
-    site {
-      siteMetadata {
-        author
-        social {
-          instagram
-        }
-      }
-    }
-  }
-`);
+  `);
 
   const { author } = data.site.siteMetadata;
 
