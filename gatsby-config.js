@@ -1,7 +1,7 @@
 /* eslint-disable */
 console.log(process.env.PATH_PREFIX);
 module.exports = {
-  pathPrefix: process.env.NODE_ENV === 'production' ? '/bloggsterr' : '/',
+  pathPrefix: process.env.NODE_ENV === 'production' ? '/bloggsterr/' : '/',
   siteMetadata: {
     title: `Alex Mubarakshin`,
     description: `OMG!? Is this the personal blog by Alex Mubarakshin?!.`,
