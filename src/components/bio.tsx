@@ -1,11 +1,12 @@
-import React from 'react';
+import * as React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import Image from 'gatsby-image';
 import { OutboundLink } from 'gatsby-plugin-google-analytics';
 
 import { rhythm } from '../utils/typography';
+import { TSite } from '../types/global';
 
-const Bio: React.FC = () => {
+const useData = (): { site: TSite; avatar: any } => {
   const data = useStaticQuery(graphql`
     query BioQuery {
       avatar: file(relativePath: { eq: "author.jpg" }) {
@@ -26,7 +27,12 @@ const Bio: React.FC = () => {
     }
   `);
 
-  const { author } = data.site.siteMetadata;
+  return { site: data.site, avatar: data.avatar };
+};
+
+const Bio: React.FC = () => {
+
+  const { site: { siteMetadata: { author } }, avatar } = useData();
 
   return (
     <div
@@ -36,7 +42,7 @@ const Bio: React.FC = () => {
       }}
     >
       <Image
-        fixed={data.avatar.childImageSharp.fixed}
+        fixed={avatar.childImageSharp.fixed}
         alt={author}
         style={{
           borderRadius: '50%',

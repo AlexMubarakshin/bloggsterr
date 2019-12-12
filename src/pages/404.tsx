@@ -8,7 +8,6 @@ type NotFoundPageProps = {
   location: TLocation;
 }
 
-
 const NotFoundPage: React.FC<NotFoundPageProps> = ({ location }: NotFoundPageProps) => (
   <Layout
     location={location}

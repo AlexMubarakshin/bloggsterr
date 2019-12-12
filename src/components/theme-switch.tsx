@@ -4,8 +4,7 @@ import { ThemeToggler } from 'gatsby-plugin-dark-mode';
 
 import Image from 'gatsby-image';
 
-
-const ThemeSwitch: React.FC = () => {
+const useIconsData = (): { sun: any; moon: any } => {
   const data = useStaticQuery(graphql`
     query {
       sun: file(relativePath: { eq: "icon-sun.png" }) {
@@ -25,7 +24,12 @@ const ThemeSwitch: React.FC = () => {
     }
   `);
 
-  const { sun, moon } = data;
+  return { sun: data.sun, moon: data.moon };
+};
+
+
+const ThemeSwitch: React.FC = () => {
+  const { sun, moon } = useIconsData();
 
   return (
     <ThemeToggler>

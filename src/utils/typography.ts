@@ -1,7 +1,7 @@
 import Typography from 'typography';
 import Theme from 'typography-theme-noriega';
 
-Theme.overrideThemeStyles = () => ({
+Theme.overrideThemeStyles = (): object => ({
   a: {
     color: 'var(--textLink)'
   },

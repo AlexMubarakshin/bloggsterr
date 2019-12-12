@@ -3,13 +3,13 @@ import { Link, useStaticQuery, graphql } from 'gatsby';
 
 import ThemeSwitch from './theme-switch';
 
-import { TLocation } from '../types/global';
+import { TLocation, TSite } from '../types/global';
 
 type HeaderProps = {
   location: TLocation;
 }
 
-const Header: React.FC<HeaderProps> = ({ location }: HeaderProps) => {
+const useSiteMetadata = (): TSite => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site(pathPrefix: {}) {
@@ -21,6 +21,14 @@ const Header: React.FC<HeaderProps> = ({ location }: HeaderProps) => {
     }
   `);
 
+  return data.site;
+};
+
+const Header: React.FC<HeaderProps> = ({ location, }: HeaderProps) => {
+  const { siteMetadata: { title }, pathPrefix } = useSiteMetadata();
+
+  const isHomePage = location.pathname === pathPrefix;
+
   return (
     <div
       style={{
@@ -31,20 +39,21 @@ const Header: React.FC<HeaderProps> = ({ location }: HeaderProps) => {
       }}
     >
       {
-        (location.pathname === data.site.pathPrefix) ? (
-          <h1 style={{ margin: 0 }}>
-            <Link
-              to="/"
-              style={{
-                color: 'var(--textNormal)',
-                textDecoration: 'none',
-                fontSize: '1.618rem'
-              }}
-            >
-              {data.site.siteMetadata.title}
-            </Link>
-          </h1>
-        )
+        (isHomePage) ?
+          (
+            <h1 style={{ margin: 0 }}>
+              <Link
+                to="/"
+                style={{
+                  color: 'var(--textNormal)',
+                  textDecoration: 'none',
+                  fontSize: '1.618rem'
+                }}
+              >
+                {title}
+              </Link>
+            </h1>
+          )
           :
           (
             <h3 style={{ margin: 0 }}>
@@ -55,11 +64,12 @@ const Header: React.FC<HeaderProps> = ({ location }: HeaderProps) => {
                   fontSize: '1.618rem'
                 }}
               >
-                {data.site.siteMetadata.title}
+                {title}
               </Link>
             </h3>
           )
       }
+
       <ThemeSwitch />
     </div>
   );

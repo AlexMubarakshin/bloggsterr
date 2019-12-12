@@ -1,8 +1,9 @@
-import React from 'react';
+import * as React from 'react';
 import Helmet from 'react-helmet';
 import { useStaticQuery, graphql } from 'gatsby';
 
 import { removeDuplicates } from '../utils/helpers';
+import { TSite } from '../types/global';
 
 type SeoProps = {
   title: string;
@@ -11,20 +12,24 @@ type SeoProps = {
   meta?: any[];
 }
 
-const SEO: React.FC<SeoProps> = ({ description, lang, meta, title }: SeoProps) => {
-  const { site } = useStaticQuery(
-    graphql`
-      query {
-        site {
-          siteMetadata {
-            title
-            description
-            author
-          }
+const useSiteMetadata = (): TSite => {
+  const data = useStaticQuery(graphql`
+    query {
+      site {
+        siteMetadata {
+          title
+          description
+          author
         }
       }
-    `
-  );
+    }
+  `);
+
+  return data.site;
+};
+
+const SEO: React.FC<SeoProps> = ({ description, lang, meta, title }: SeoProps) => {
+  const site = useSiteMetadata();
 
   const metaDescription = description || site.siteMetadata.description;
 

@@ -40,4 +40,5 @@ export type TSite = {
     social: {};
     title: string;
   };
+  pathPrefix: string;
 }
