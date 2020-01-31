@@ -63,5 +63,11 @@ module.exports = {
         cookieDomain: "auto",
       },
     },
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [`gatsby-remark-copy-linked-files`],
+      },
+    },
   ],
 };
