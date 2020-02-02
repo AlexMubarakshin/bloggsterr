@@ -1,6 +1,10 @@
 /* eslint-disable */
 var START_URL = process.env.NODE_ENV === 'production' ? '/bloggsterr/' : '/';
 
+require("dotenv").config({
+  path: '.env',
+});
+
 module.exports = {
   pathPrefix: START_URL,
   siteMetadata: {

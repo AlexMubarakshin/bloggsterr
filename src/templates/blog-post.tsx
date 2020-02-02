@@ -1,11 +1,14 @@
 import * as React from 'react';
 import { graphql } from 'gatsby';
+
+
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 
 import { TLocation, TSite, TNode, TPageContext, } from '../types/global';
 
 import Bio from '../components/bio';
+import Comments from '../components/comments';
 
 type TemplateProps = {
   data: { site: TSite; markdownRemark: TNode };
@@ -49,6 +52,10 @@ const Template: React.FC<TemplateProps> = ({
       </article>
       <hr />
       <Bio />
+      <Comments
+        identifier={frontmatter.path}
+        title={frontmatter.title}
+        url={frontmatter.path} />
     </Layout>
   );
 };
