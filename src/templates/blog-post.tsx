@@ -55,7 +55,7 @@ const Template: React.FC<TemplateProps> = ({
       <Comments
         identifier={frontmatter.path}
         title={frontmatter.title}
-        url={frontmatter.path} />
+      />
     </Layout>
   );
 };

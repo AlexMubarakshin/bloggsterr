@@ -4,15 +4,15 @@ import { DiscussionEmbed } from 'disqus-react';
 import { disqusConfig } from '../config';
 
 type CommentsProps = {
-  url: string;
   title: string;
   identifier: string;
 }
 
-const Comments: React.FC<CommentsProps> = ({ url, title, identifier }: CommentsProps) => {
+const Comments: React.FC<CommentsProps> = ({ title, identifier }: CommentsProps) => {
+  const config = disqusConfig({ identifier, title }) as any;
   return (
     <div>
-      <DiscussionEmbed {...disqusConfig({ identifier, title, url })} />
+      <DiscussionEmbed {...config} />
     </div>
   );
 };
