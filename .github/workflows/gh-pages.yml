@@ -15,7 +15,7 @@ jobs:
           node-version: '12.14.1'
           registry-url: 'https://registry.npmjs.org'
       - run: yarn install --production
-      - run: node ./create-env.js --gatsby-disqus-name="${{ secrets.LOWTRIP_REGISTRY_PASSWORD }}"
+      - run: node ./create-env.js --gatsby-disqus-name="${{ secrets.GATSBY_DISQUS_NAME }}"
       - uses: enriikke/gatsby-gh-pages-action@v2
         with:
           access-token: ${{ secrets.ACCESS_TOKEN }}
