@@ -26,9 +26,11 @@ const Layout: React.FC<LayoutProps> = ({ children, location }: React.PropsWithCh
     <footer
       style={{ marginTop: '4.375rem' }}
     >
-      <OutboundLink href="https://github.com/AlexMubarakshin" target="_blank" rel="noopener noreferrer">github</OutboundLink>
+      <OutboundLink href="https://www.linkedin.com/in/a1ex-dev" target="_blank" rel="noopener noreferrer">LinkedIn</OutboundLink>
       {' | '}
-      <OutboundLink href="https://www.instagram.com/alex_killpop" target="_blank" rel="noopener noreferrer">instagram</OutboundLink>
+      <OutboundLink href="https://github.com/AlexMubarakshin" target="_blank" rel="noopener noreferrer">Github</OutboundLink>
+      {' | '}
+      <OutboundLink href="https://www.instagram.com/alex_killpop" target="_blank" rel="noopener noreferrer">Instagram</OutboundLink>
     </footer>
   </div>
 );
